@@ -1,24 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--xkcd viewer-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="XkcdMainViewController" customModule="xkcd_viewer__Experion_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="pDz-3G-WWe">
+                                <rect key="frame" x="20" y="104" width="374" height="600.5"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ajB-1R-EsE" appends="YES" id="Us0-Ac-ZEB"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="This Is A Very Long Comic Title That Tests Multiple Lines" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuX-kY-0wx">
+                                <rect key="frame" x="20" y="712.5" width="374" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SA7-A1-3XU" userLabel="Random Comic View">
+                                <rect key="frame" x="20" y="799.5" width="374" height="62.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMm-H0-WIp" userLabel="Random Comic Button">
+                                        <rect key="frame" x="76" y="13.5" width="222" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <state key="normal" title="give me a random comic">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showRandomComicButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hrm-gT-vzC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hMm-H0-WIp" firstAttribute="centerX" secondItem="SA7-A1-3XU" secondAttribute="centerX" id="c0e-BE-FIU"/>
+                                    <constraint firstItem="hMm-H0-WIp" firstAttribute="centerY" secondItem="SA7-A1-3XU" secondAttribute="centerY" id="dYm-Kp-Oqf"/>
+                                    <constraint firstAttribute="height" constant="62.5" id="kFI-Wo-Wjh"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️ Current Comic - 6/6/21" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyt-DP-K38">
+                                <rect key="frame" x="0.0" y="776.5" width="414" height="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xkcd viewer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFV-Ne-R4n">
+                                <rect key="frame" x="20" y="44" width="172" height="37"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An Experion iOS Assessment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfR-z0-FmX">
+                                <rect key="frame" x="20" y="81" width="163" height="15"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jI1-mC-Cgy" userLabel="Help Button">
+                                <rect key="frame" x="197" y="52.5" width="20" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="jI1-mC-Cgy" secondAttribute="height" multiplier="7:9" id="zlt-TB-lO2"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="questionmark.circle" catalog="system" renderingMode="template"/>
+                                </state>
+                                <connections>
+                                    <action selector="helpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJe-ky-2jh"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gfR-z0-FmX" firstAttribute="top" secondItem="aFV-Ne-R4n" secondAttribute="bottom" id="4b6-5e-ZPH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jI1-mC-Cgy" secondAttribute="trailing" id="BOm-q1-qq5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pDz-3G-WWe" secondAttribute="trailing" constant="20" id="MAm-3Z-4JH"/>
+                            <constraint firstItem="SA7-A1-3XU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MOE-dz-9J5"/>
+                            <constraint firstItem="DuX-kY-0wx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mlk-iY-GZe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SA7-A1-3XU" secondAttribute="trailing" constant="20" id="QMQ-eh-q2X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SA7-A1-3XU" secondAttribute="bottom" id="TM9-7e-2Jc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gfR-z0-FmX" secondAttribute="trailing" id="cKc-8D-r95"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tyt-DP-K38" secondAttribute="trailing" id="eK0-pV-6wz"/>
+                            <constraint firstItem="jI1-mC-Cgy" firstAttribute="leading" secondItem="aFV-Ne-R4n" secondAttribute="trailing" constant="5" id="fuV-gE-Chy"/>
+                            <constraint firstItem="tyt-DP-K38" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="i2j-LN-hWX"/>
+                            <constraint firstItem="tyt-DP-K38" firstAttribute="top" secondItem="DuX-kY-0wx" secondAttribute="bottom" constant="4" id="kZn-Dy-X1T"/>
+                            <constraint firstItem="aFV-Ne-R4n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="lc5-sG-J4J"/>
+                            <constraint firstItem="jI1-mC-Cgy" firstAttribute="centerY" secondItem="aFV-Ne-R4n" secondAttribute="centerY" constant="3" id="nTq-zJ-j2J"/>
+                            <constraint firstItem="gfR-z0-FmX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="nu8-vV-xAt"/>
+                            <constraint firstItem="pDz-3G-WWe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oDE-mY-u6G"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DuX-kY-0wx" secondAttribute="trailing" constant="20" id="pFq-Z8-lgd"/>
+                            <constraint firstItem="DuX-kY-0wx" firstAttribute="top" secondItem="pDz-3G-WWe" secondAttribute="bottom" constant="8" symbolic="YES" id="qNf-6e-BzF"/>
+                            <constraint firstItem="SA7-A1-3XU" firstAttribute="top" secondItem="tyt-DP-K38" secondAttribute="bottom" constant="8" symbolic="YES" id="rnI-gH-Kan"/>
+                            <constraint firstItem="aFV-Ne-R4n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="uJr-zz-HW0"/>
+                            <constraint firstItem="pDz-3G-WWe" firstAttribute="top" secondItem="gfR-z0-FmX" secondAttribute="bottom" constant="8" symbolic="YES" id="wCT-xn-Q8q"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="xkcd viewer" prompt="Experion iOS Assessment" largeTitleDisplayMode="never" id="Klh-ba-tjg"/>
+                    <connections>
+                        <outlet property="comicImageView" destination="pDz-3G-WWe" id="Ngl-0s-q5c"/>
+                        <outlet property="comicSecondaryLabel" destination="tyt-DP-K38" id="7bs-jF-o0N"/>
+                        <outlet property="comicTitleLabel" destination="DuX-kY-0wx" id="XtM-je-bpI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ajB-1R-EsE">
+                    <connections>
+                        <action selector="comicImageViewTapped:" destination="BYZ-38-t0r" id="DZ5-pk-s2w"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="934.78260869565224" y="88.392857142857139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="questionmark.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

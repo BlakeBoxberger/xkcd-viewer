@@ -3,27 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B83BD8C2266D9F4C008270E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BD8C1266D9F4C008270E4 /* AppDelegate.swift */; };
 		B83BD8C4266D9F4C008270E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BD8C3266D9F4C008270E4 /* SceneDelegate.swift */; };
-		B83BD8C6266D9F4C008270E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BD8C5266D9F4C008270E4 /* ViewController.swift */; };
+		B83BD8C6266D9F4C008270E4 /* XkcdMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BD8C5266D9F4C008270E4 /* XkcdMainViewController.swift */; };
 		B83BD8C9266D9F4C008270E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83BD8C7266D9F4C008270E4 /* Main.storyboard */; };
 		B83BD8CB266D9F4C008270E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B83BD8CA266D9F4C008270E4 /* Assets.xcassets */; };
 		B83BD8CE266D9F4C008270E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B83BD8CC266D9F4C008270E4 /* LaunchScreen.storyboard */; };
+		B83BD8DA266DB322008270E4 /* XckdComic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BD8D9266DB322008270E4 /* XckdComic.swift */; };
+		B83BD8DF266DB657008270E4 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = B83BD8DE266DB657008270E4 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B83BD8BE266D9F4C008270E4 /* xkcd viewer (Experion).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "xkcd viewer (Experion).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B83BD8C1266D9F4C008270E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B83BD8C3266D9F4C008270E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B83BD8C5266D9F4C008270E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B83BD8C5266D9F4C008270E4 /* XkcdMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XkcdMainViewController.swift; sourceTree = "<group>"; };
 		B83BD8C8266D9F4C008270E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B83BD8CA266D9F4C008270E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B83BD8CD266D9F4C008270E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B83BD8CF266D9F4C008270E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B83BD8D9266DB322008270E4 /* XckdComic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XckdComic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B83BD8DF266DB657008270E4 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +60,40 @@
 		B83BD8C0266D9F4C008270E4 /* xkcd viewer (Experion) */ = {
 			isa = PBXGroup;
 			children = (
+				B83BD8D8266D9FB7008270E4 /* Extensions */,
+				B83BD8D6266D9F9A008270E4 /* Models */,
+				B83BD8D5266D9F8E008270E4 /* View Controllers */,
 				B83BD8C1266D9F4C008270E4 /* AppDelegate.swift */,
 				B83BD8C3266D9F4C008270E4 /* SceneDelegate.swift */,
-				B83BD8C5266D9F4C008270E4 /* ViewController.swift */,
 				B83BD8C7266D9F4C008270E4 /* Main.storyboard */,
 				B83BD8CA266D9F4C008270E4 /* Assets.xcassets */,
 				B83BD8CC266D9F4C008270E4 /* LaunchScreen.storyboard */,
 				B83BD8CF266D9F4C008270E4 /* Info.plist */,
 			);
 			path = "xkcd viewer (Experion)";
+			sourceTree = "<group>";
+		};
+		B83BD8D5266D9F8E008270E4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B83BD8C5266D9F4C008270E4 /* XkcdMainViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B83BD8D6266D9F9A008270E4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B83BD8D9266DB322008270E4 /* XckdComic.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B83BD8D8266D9FB7008270E4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +112,9 @@
 			dependencies = (
 			);
 			name = "xkcd viewer (Experion)";
+			packageProductDependencies = (
+				B83BD8DE266DB657008270E4 /* SDWebImage */,
+			);
 			productName = "xkcd viewer (Experion)";
 			productReference = B83BD8BE266D9F4C008270E4 /* xkcd viewer (Experion).app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +142,9 @@
 				Base,
 			);
 			mainGroup = B83BD8B5266D9F4C008270E4;
+			packageReferences = (
+				B83BD8DD266DB657008270E4 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = B83BD8BF266D9F4C008270E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,9 +172,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B83BD8C6266D9F4C008270E4 /* ViewController.swift in Sources */,
+				B83BD8C6266D9F4C008270E4 /* XkcdMainViewController.swift in Sources */,
 				B83BD8C2266D9F4C008270E4 /* AppDelegate.swift in Sources */,
 				B83BD8C4266D9F4C008270E4 /* SceneDelegate.swift in Sources */,
+				B83BD8DA266DB322008270E4 /* XckdComic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +377,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B83BD8DD266DB657008270E4 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B83BD8DE266DB657008270E4 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B83BD8DD266DB657008270E4 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B83BD8B6266D9F4C008270E4 /* Project object */;
 }
