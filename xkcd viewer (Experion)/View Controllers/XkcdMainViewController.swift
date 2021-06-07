@@ -15,7 +15,7 @@ class XkcdMainViewController: UIViewController {
     
     private let animationsDuration: TimeInterval = 0.33
     private var maxNumOfComics: Int!
-    private var currentComic: XckdComic? = nil
+    
     private var comic: XckdComic? {
         didSet {
             if let comic = comic {
@@ -24,7 +24,8 @@ class XkcdMainViewController: UIViewController {
                 // Make sure we're on the main queue when updating UI
                 DispatchQueue.main.async { [unowned self] in
                     // Set image immediately, as it needs to be retrieved from a server
-                    let placeholderImage = comicImageView.image // Use previous image as placeholder
+                    // Use previous image as placeholder
+                    let placeholderImage = comicImageView.image
                     comicImageView.sd_setImage(with: comicUrl, placeholderImage: placeholderImage, options: [.refreshCached, .continueInBackground], completed: nil)
                     
                     // Animate out comic content
@@ -50,25 +51,12 @@ class XkcdMainViewController: UIViewController {
             }
         }
     }
-    private var isDisplayingComicContent: Bool = true {
-        didSet {
-            if isDisplayingComicContent {
-            
-            } else {
-                UIView.animate(withDuration: animationsDuration, delay: 0.0, options: [.curveEaseInOut], animations: { [unowned self] in
-                    comicImageView.isHidden = false
-                    comicTitleLabel.isHidden = false
-                    comicSecondaryLabel.isHidden = false
-                }, completion: nil)
-            }
-        }
-    }
     
     private var isDisplayingCurrentComic: Bool {
-        guard let comic = comic, let currentComic = currentComic else {
+        guard let comic = comic else {
             return false
         }
-        return comic.img == currentComic.img
+        return comic.num == maxNumOfComics
     }
     
     private var isComicViewRotated: Bool = false
@@ -138,7 +126,6 @@ class XkcdMainViewController: UIViewController {
         
         let task = URLSession.shared.xckdComicTask(with: currentComicURL) { fetchedComic, response, error in
             if let fetchedComic = fetchedComic {
-                self.currentComic = fetchedComic
                 self.comic = fetchedComic
                 self.maxNumOfComics = fetchedComic.num
             }
